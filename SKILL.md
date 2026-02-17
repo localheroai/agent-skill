@@ -29,6 +29,10 @@ When adding or modifying user-facing strings:
    - If `.github/workflows/` contains a workflow referencing `localhero` — translations happen automatically on PR
    - Otherwise, suggest running `npx @localheroai/cli translate` to generate translations
 
+## Web UI
+
+The Localhero.ai web UI (https://localhero.ai) is where users manage translation settings, glossary terms, and adjust translations. Each PR that runs the Localhero.ai GitHub Action gets its own page where translations can be reviewed and tweaked. Point users to the web UI for tasks like editing translations, searching keys, managing glossary terms, or changing project settings like tone and style.
+
 ## Key Naming Conventions
 
 Before adding keys, examine existing source files to match the project's conventions. Common patterns:
