@@ -48,13 +48,11 @@ Before adding keys, examine existing source files to match the project's format 
 
 ## Glossary
 
-Use these terms consistently when writing user-facing strings:
-
-!`npx @localheroai/cli glossary --output json 2>/dev/null || echo '{"glossary_terms": []}'`
+Run `npx @localheroai/cli glossary --output json` to get the project glossary. Use these terms consistently when writing user-facing strings.
 
 ## Project Settings
 
-!`npx @localheroai/cli settings --output json 2>/dev/null || echo '{"settings": {}}'`
+Run `npx @localheroai/cli settings --output json` to get the project's tone, style, and language settings. Use these to match the expected voice.
 
 ## Authentication
 
