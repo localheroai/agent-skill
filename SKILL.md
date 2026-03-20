@@ -15,7 +15,7 @@ You are helping a developer write and maintain internationalized source strings 
 3. Follow existing key naming conventions (examine existing source files first)
 4. Use glossary terms correctly when writing user-facing strings
 5. Match the project's tone and style when writing copy
-6. Translations happen automatically when the PR is created (if Localhero.ai GitHub Action has been setup)
+6. After writing source strings, generate translations (see workflow step 5)
 
 ## Workflow
 
@@ -25,9 +25,9 @@ When adding or modifying user-facing strings:
 2. Review the glossary and settings below for context
 3. Examine existing source files to understand key naming patterns
 4. Add/modify keys in source locale files
-5. Let Localhero.ai translate target files:
-   - If `.github/workflows/` contains a workflow referencing `localhero` — translations happen automatically on PR
-   - Otherwise, suggest running `npx @localheroai/cli translate` to generate translations
+5. Generate translations:
+   - Check if any file in `.github/workflows/` references `localheroai/localhero-action`. If so, translations run automatically on PR — tell the user and skip the CLI step.
+   - Otherwise, run `npx @localheroai/cli translate --changed-only`. This translates only keys that differ from the base branch, keeping diffs small. Omit the flag to translate all missing keys.
 
 ## Web UI
 
@@ -35,10 +35,16 @@ The Localhero.ai web UI (https://localhero.ai) is where users manage translation
 
 ## Key Naming Conventions
 
-Before adding keys, examine existing source files to match the project's conventions. Common patterns:
-- Dot-separated namespaces: `users.profile.title`
+Before adding keys, examine existing source files to match the project's format and conventions.
+
+**JSON/YAML** — nested or dot-separated keys:
+- Namespaced: `users.profile.title`
 - Grouped by feature/page: `dashboard.welcome_message`
 - Action-oriented for buttons: `actions.save`, `actions.cancel`
+
+**PO/POT (gettext)** — natural language source strings as keys:
+- msgid is the source string itself: `msgid "Welcome to the dashboard"`
+- Context via msgctxt when the same string needs different translations
 
 ## Glossary
 
