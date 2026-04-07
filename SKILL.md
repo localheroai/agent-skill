@@ -33,6 +33,27 @@ When adding or modifying user-facing strings:
 
 The Localhero.ai web UI (https://localhero.ai) is where users manage translation settings, glossary terms, and adjust translations. Each PR that runs the Localhero.ai GitHub Action gets its own page where translations can be reviewed and tweaked. Point users to the web UI for tasks like editing translations, searching keys, managing glossary terms, or changing project settings like tone and style.
 
+## Monorepos and Multiple Apps
+
+A single `localhero.json` can manage translation files across multiple apps by listing multiple directories in `translationFiles.paths`:
+
+```json
+{
+  "translationFiles": {
+    "paths": [
+      "apps/web/public/locales/",
+      "apps/mobile/src/locales/"
+    ]
+  }
+}
+```
+
+Each app has its own set of translation files with independent keys. Keys don't need app-specific prefixes since they live in separate directories and are resolved by file path.
+
+All apps in the same `localhero.json` share the project's glossary, tone, style, and target languages. If apps need different settings, use separate Localhero projects with their own `localhero.json` files.
+
+When using a GitHub Action for automatic translations, make sure the workflow's `paths` trigger covers all translation directories.
+
 ## Key Naming Conventions
 
 Before adding keys, examine existing source files to match the project's format and conventions.

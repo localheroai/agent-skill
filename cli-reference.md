@@ -113,6 +113,21 @@ Project configuration file created by `npx @localheroai/cli init`:
 }
 ```
 
+Multiple translation directories (e.g. monorepos with multiple apps):
+
+```json
+{
+  "translationFiles": {
+    "paths": [
+      "apps/web/public/locales/",
+      "apps/admin/src/locales/"
+    ]
+  }
+}
+```
+
+All paths share the same project settings, glossary, and target languages. The CLI processes all paths when running `translate`, `push`, or `pull`.
+
 ### Environment Variables
 
 | Variable | Description |
