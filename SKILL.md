@@ -85,6 +85,23 @@ npx @localheroai/cli login
 
 For non-interactive environments, they can also use `npx @localheroai/cli login --api-key <key>` or set `LOCALHERO_API_KEY`. API keys are available at https://localhero.ai/api-keys
 
+## Non-interactive project setup
+
+If a project has no `localhero.json` yet, you can configure it in one command without any prompts:
+
+```bash
+npx @localheroai/cli init --yes \
+  --source-locale en \
+  --target-locales sv,de \
+  --path config/locales/
+```
+
+Required flags: `--yes`, `--source-locale`, `--target-locales`, `--path` (or pass `--project-id <slug>` instead of source/target to reuse an existing project).
+
+Auth resolution: the CLI uses `LOCALHERO_API_KEY` or an existing `.localhero_key` if either is present, otherwise falls back to `--api-key <key>`. To force a specific key, set `LOCALHERO_API_KEY` in the environment before running `init`.
+
+See [cli-reference.md](cli-reference.md) for the full flag list.
+
 ## CLI Reference
 
 See [cli-reference.md](cli-reference.md) for all available commands. Full source at https://github.com/localheroai/cli
