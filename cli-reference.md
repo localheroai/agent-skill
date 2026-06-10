@@ -168,6 +168,8 @@ Multiple translation directories (e.g. monorepos with multiple apps):
 
 All paths share the same project settings, glossary, and target languages. The CLI processes all paths when running `translate`, `push`, or `pull`.
 
+**`customLocales`** (optional): Declarations for non-standard locale codes, e.g. `[{ "code": "ja_easy", "name": "Easy Japanese", "baseLanguage": "ja" }]`. Each code must also be listed in `outputLocales` (the file scanner reads only `outputLocales`). Created by interactive `init`; validated server-side.
+
 ### Environment Variables
 
 | Variable | Description |
