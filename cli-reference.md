@@ -106,6 +106,8 @@ Flags:
 | `--skip-import` | Do not import existing translation files |
 | `--github-action` | Opt in to creating a GitHub Actions workflow (only applies in `--yes` mode; off by default) |
 
+**Custom locales:** non-standard locale codes (anything outside `xx` / `xx-XX`, e.g. `ja_easy`) are rejected in `--yes` mode with an error telling you to run `init` interactively — interactive init prompts for each non-standard code's display name and base language, declares it to the backend, and records it under `customLocales` in `localhero.json`. Rails-style underscore region codes (`zh_cn`) also trigger the prompt but are normalized server-side to the standard locale (`zh-CN`). With `--project-id`, locales come from the existing project, so custom locales already declared there work in `--yes` mode.
+
 **Auth resolution order:** the CLI first checks `LOCALHERO_API_KEY` env var, then the `.localhero_key` file in the working directory. If either contains a valid key, that key is used and `--api-key` is ignored. Only if neither is present does `--api-key` kick in as a fallback. If none of the three are available, `init --yes` fails with an actionable error.
 
 To force a specific key in an agent workflow, either set `LOCALHERO_API_KEY` in the environment or remove any stale `.localhero_key` before running `init`.
