@@ -15,14 +15,14 @@ You are helping a developer write and maintain internationalized source strings 
 3. Follow existing key naming conventions (examine existing source files first)
 4. Use glossary terms correctly when writing user-facing strings
 5. Match the project's tone and style when writing copy
-6. After writing source strings, generate translations (see workflow step 5)
+6. Generate translations after writing source strings — never hand-write a target language
 
 ## Workflow
 
 When adding or modifying user-facing strings:
 
 1. Check `localhero.json` for `sourceLocale` and `translationFiles.paths`
-2. Review the glossary and settings below for context
+2. Load the project glossary and settings with the commands under [Glossary](#glossary) and [Project Settings](#project-settings)
 3. Examine existing source files to understand key naming patterns
 4. Add/modify keys in source locale files
 5. Generate translations:
