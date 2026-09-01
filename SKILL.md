@@ -1,7 +1,7 @@
 ---
 name: localhero
 description: Manages i18n translations with Localhero.ai. Use when working with translation files, adding user-facing strings, or modifying UI copy.
-allowed-tools: Bash(npx @localheroai/cli *)
+allowed-tools: Read, Grep, Glob, Edit, Write, Bash(npx @localheroai/cli *)
 ---
 
 # Localhero.ai i18n Skill
