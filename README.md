@@ -4,6 +4,11 @@ An agent skill for [Claude Code](https://docs.anthropic.com/en/docs/claude-code/
 
 Your assistant gets access to your project's glossary and style settings, as well as instructions on how to work with Localhero.ai in your project. Glossary terms and settings are loaded dynamically when the skill activates.
 
+## Formats
+
+Works with `.json` (React, Vue, Node, Next.js), `.yaml` (Rails) and `.po`/gettext
+(Django, Python, Phoenix, Elixir, Lingui).
+
 ## Install
 
 ```bash

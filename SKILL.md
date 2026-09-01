@@ -1,6 +1,6 @@
 ---
 name: localhero
-description: Manages i18n translations with Localhero.ai. Use when working with translation files, adding user-facing strings, or modifying UI copy.
+description: Manages i18n translations with Localhero.ai. Use when adding or changing user-facing strings, working with translation or locale files, or when the user mentions i18n, internationalization, localization, translations, locales, glossary terms, or JSON, YAML and gettext .po catalogs in React, Vue, Next.js, Node, Rails, Django, Phoenix or Lingui projects.
 allowed-tools: Read, Grep, Glob, Edit, Write, Bash(npx @localheroai/cli *)
 ---
 
@@ -53,6 +53,17 @@ Each app has its own set of translation files with independent keys. Keys don't 
 All apps in the same `localhero.json` share the project's glossary, tone, style, and target languages. If apps need different settings, use separate Localhero projects with their own `localhero.json` files.
 
 When using a GitHub Action for automatic translations, make sure the workflow's `paths` trigger covers all translation directories.
+
+## Supported Formats
+
+| Format | Typically used by |
+|--------|-------------------|
+| `.json` | React, Vue, Node, Next.js (react-i18next, next-intl, Lingui) |
+| `.yaml` | Ruby on Rails |
+| `.po` / `.pot` (gettext) | Django, Python, Phoenix, Elixir, Lingui |
+
+Localhero.ai reads the source locale files in `translationFiles.paths` and writes the
+target locale files beside them, in the same format.
 
 ## Key Naming Conventions
 
